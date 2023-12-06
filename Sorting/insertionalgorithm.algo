@@ -1,0 +1,54 @@
+ALGORITHM  InsertionSortProcedure
+
+CONST 
+MAX =100;
+
+VAR
+
+    arr: ARRAY_OF INTEGER [1..MAX];
+    n: INTEGER;
+
+PROCEDURE InsertionSort(VAR a:ARRAY_OF INTEGER ; size: INTEGER)
+VAR
+    i, j, key: INTEGER;
+BEGIN
+    FOR i FROM 1 TO size-1 STEP 1  DO
+        
+        key := a[i];
+        j := i - 1;
+         // Move elements of arr[1..i-1] that are greater than key to one position ahead of their current position
+        WHILE (j >= 0 ) AND (a[j] > key) DO
+        a[j + 1] := a[j];
+        j := j - 1;
+        END_WHILE
+        a[j + 1] := key;
+    END_FOR
+
+END InsertionSort;
+
+
+    PROCEDURE DisplayArray(CONST a: ARRAY_OF INTEGER; size: INTEGER)
+    VAR
+        i: INTEGER;
+    BEGIN
+        FOR i FROM 0 TO size-1 STEP 1  DO
+        WRITE(a[i], " ");
+        END_FOR
+    END DisplayArray;
+    
+     // Input: Reading the array size and elements
+    WRITE("Enter the number of elements: ");
+    READ(n);
+
+    WRITE("Enter elements: ");
+        FOR i FROM 1 TO n STEP 1  DO
+            READ(arr[i]); 
+        END_FOR
+    
+     // Sorting using Insertion Sort
+    InsertionSort(arr, n);
+     // Output: Displaying the sorted array
+    WRITE("Sorted array:");
+    DisplayArray(arr, n);
+
+END
