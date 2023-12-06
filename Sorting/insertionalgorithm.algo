@@ -1,7 +1,7 @@
 ALGORITHM  InsertionSortProcedure
 
 CONST 
-MAX =100;
+MAX =10;
 
 VAR
 
